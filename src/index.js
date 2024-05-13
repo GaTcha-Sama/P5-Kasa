@@ -12,12 +12,12 @@ ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/flats" element={<Flats />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/flats" element={<Flats />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
       <Footer />
     </Router>
   </React.StrictMode>,

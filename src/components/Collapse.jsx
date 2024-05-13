@@ -1,22 +1,48 @@
-import React from 'react'
-import ImgBannerAbout from '../assets/img-about.png'
-import '../styles/Collapse.scss'
-import CollapseText from '../data/CollapseText.json'
+import React, { useState } from 'react';
+import '../styles/Collapse.scss'; 
+import Data from '../data/CollapseText.json'; 
+import ArrowUp from '../assets/arrow-up.png';
+import ArrowDown from '../assets/arrow-down.png';
 
-function Collapse() {
+function Collapse() { 
+  const [activeCollapses, setActiveCollapses] = useState([]); // Utiliser un tableau pour stocker les éléments actifs
+  const [arrowStates, setArrowStates] = useState({});
+
+  const toggleCollapse = (id) => { 
+    if (activeCollapses.includes(id)) {
+      // Si l'élément est déjà actif, le retirer du tableau des actifs
+      setActiveCollapses(activeCollapses.filter(item => item !== id));
+    } else {
+      // Sinon, l'ajouter au tableau des actifs
+      setActiveCollapses([...activeCollapses, id]);
+    }
+
+    // Mettre à jour l'état de la flèche pour cet élément
+    setArrowStates(prevState => ({
+      ...prevState,
+      [id]: !prevState[id]
+    }));
+  };
+
   return (
-    <div className='banner'>
-        <img src={ImgBannerAbout} alt='img-banner' className='banner__img' />
-        <div className='about'>
-            {CollapseText.map(item => (
-            <div className="about__info" key={item.id}>
-                <h2>{item.title}</h2> 
-                <p>{item.description}</p>                  
+    <div className="collapse">
+      {Data.map(item => (
+        <div key={item.id} className="collapse__info">
+          <div
+            className={`collapse__info__header ${activeCollapses.includes(item.id) ? 'active' : ''}`}
+            onClick={() => toggleCollapse(item.id)}
+          >
+            {item.title} {arrowStates[item.id] ? <img src={ArrowDown} alt="arrow-down" className='collapse__arrow-down' /> : <img src={ArrowUp} alt="arrow-up" className='collapse__arrow-up' />}
+          </div>
+          {activeCollapses.includes(item.id) && (
+            <div className="collapse__body">
+              {item.description} 
             </div>
-            ))}
+          )}
         </div>
+      ))}
     </div>
-  )
+  );
 }
 
-export default Collapse
+export default Collapse;

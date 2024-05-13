@@ -1,12 +1,31 @@
-.about {
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    &__info {
-        background-color: #FF6060;
-        border-radius: 10px;
-        color: white;
-        font-family: 'Montserrat', sans-serif;
+.collapse {
+    width: 100%;
+    max-width: 90%; 
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 70px;
+    margin-bottom: 30px;
+    
+        &__info {
+            justify-content: space-between;
+            margin-bottom: 10px;
+  
+        &__header {
+            background-color: #FF6060;
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: 600;
+  
+        &.active {
+          border-bottom: 1px solid white;
+        }
+      }
+  
+      &__body {
+        background-color: white;
+        color: black;
+        padding: 10px;
+      }
     }
-}
+  }
