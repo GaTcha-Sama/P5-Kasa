@@ -9,8 +9,8 @@ function Header() {
             <div className="navbar__logo">
                 <img src={Logo} alt="logo" />
             </div>
-            <Link to="/"><div className="navbar__txt">Accueil</div></Link>
-            <Link to="/about"><div className="navbar__txt">À Propos</div></Link>
+            <Link to="/" style={{ textDecoration: 'none'}}><div className="navbar__txt">Accueil</div></Link>
+            <Link to="/about" style={{ textDecoration: 'none'}}><div className="navbar__txt">À Propos</div></Link>
         </nav>
     )
 }

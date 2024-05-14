@@ -1,4 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
+
+function Carroussel() {
+  return (
+    <div>Carroussel</div>
+  )
+}
+
+export default Carroussel
+
+/* import React, { useState } from 'react'
 import ArrowRight from '../assets/arrow-right.png'
 import ArrowLeft from '../assets/arrow-left.png'
 import '../styles/Carroussel.scss'
@@ -46,4 +56,4 @@ import '../styles/Carroussel.scss'
   )
 }
 
-export default Carroussel 
+export default Carroussel */
