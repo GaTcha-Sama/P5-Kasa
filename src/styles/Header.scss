@@ -3,9 +3,17 @@
     gap: 2rem;
     align-items: center;
     padding: 0 2rem;
+    @media (max-width: 768px) {
+        gap: 1rem;
+        padding: 0;
+    }
     &__logo {
         padding-top: 30px;
         margin-right: auto;
+        @media (max-width: 768px) {
+            transform: scale(0.65);
+            padding: 0;
+        }
     }
     &__txt {
         color: black;
@@ -16,7 +24,11 @@
         font-family: 'Montserrat', sans-serif;
         &:hover {
             color: #FF6060;
-            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            transform: scale(0.75);
+            text-transform: uppercase;
+            padding-top: 10px;
         }
     }    
 }
