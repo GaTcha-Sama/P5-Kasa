@@ -1,34 +1,72 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 import '../../styles/Flats.scss'
-// import Carroussel from '../../components/Carroussel'
-// import Collapse from '../../components/Collapse'
-import ImgTest from '../../assets/Background-test.png'
-// import Data from '../../data/Data.json'
+import Carroussel from '../../components/Carroussel'
+import Collapse from '../../components/Collapse'
+import Owner from '../../components/Owner'
+import Tags from '../../components/Tags'
+import Rating from '../../components/Rating'
+import DataBase from '../../data/Data.json'
 
 function Flats() {
+  
+  const {id} = useParams()
+  const navigate = useNavigate()
+  const [selectedData, setSelectedData] = useState(null)
+
+  useEffect(() => {
+    // Recherche de l'élément correspondant dans le tableau Data
+    const data = DataBase.find((item) => item.id === id);
+
+    // Vérification si l'élément est trouvé ou non
+    if (!data) {
+        // Redirection vers la page d'erreur si l'élément n'est pas trouvé
+        navigate('*');
+    } else {
+        setSelectedData(data); // Met à jour les données sélectionnées dans l'état
+    }
+}, [id, navigate]);
+
+if (!selectedData) {
+    return null; // Renvoie null si les données ne sont pas encore disponibles
+}
+
   return (
-    <div className='appart'>
-      <img src={ImgTest} alt='appart__img' />
+    <body className='appart'>
+      <div>
+        <Carroussel pictures={selectedData.pictures} />
+      </div>      
 
-      <h1 className='appart__title'>Titre de la location</h1>
-      <h3 className='appart__address'>Adresse de la location</h3>
-      <div className='appart__tags'>
-        <ul>
-          <li>Tag 1</li>
-          <li>Tag 2</li>
-          <li>Tag 3</li>
-        </ul>
-      </div>
-      <div className='appart__host'>
-        <div className='appart__name'>Alexandre Dumas</div>
-        <div className='appart__picture'></div>
-      </div>
-      <div className='appart__rating'></div>
+      <main className='appart__header'>
+        <section>
+          <h1 className='appart__title'>{selectedData.title}</h1>
+          <h3 className='appart__address'>{selectedData.location}</h3>
+          <div>
+            <Tags tags={selectedData.tags} />
+          </div>
+        </section>
 
-      <div className='appart__collapse'>
-        <div className='appart__equipments'></div>
+        <section>
+          <div className='appart__host'>
+            <Owner name={selectedData.host.name} 
+                    picture={selectedData.host.picture}            
+            />
+            <div className='appart__host__name'></div>
+            <div className='appart__host__picture'></div>
+          </div>
+          <div>
+            <Rating rating={selectedData.rating} />
+          </div>
+        </section>
+      </main>
+
+      <div>
+        <Collapse
+                title="Description" 
+                content={selectedData.description}
+        />
       </div>
-    </div>
+    </body>
   )
 }
 

@@ -1,23 +1,22 @@
 .appart {
+    display: flex;
+    flex-direction: column;
     margin: 30px;
     color: #FF6060;
     font-family: 'Montserrat', sans-serif;
-    &__img {
-        padding-bottom: 30px;
-        border-radius: 20px;
+    &__header {
+        display: flex;
+        justify-content: space-between;
     }
     &__title {
         font-weight: 400;
         margin: 0;
-        padding-top: 20px;
     }
     &__address {
         color: black;
+        font-size: 100%;
         font-weight: 400;
         margin: 0;
         padding-top: 10px;
-    }
-    &__tags {
-        list-style-type: none;
     }
 }

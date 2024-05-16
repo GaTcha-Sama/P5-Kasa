@@ -1,0 +1,9 @@
+.carroussel { 
+    margin: 30px;
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
+    &__arrow-left {
+        color: black;
+    }
+}

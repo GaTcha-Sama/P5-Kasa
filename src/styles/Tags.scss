@@ -1,0 +1,19 @@
+.tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 0;
+    padding-top: 10px;
+}
+
+.tags li {
+    background-color: #FF6060;
+    color: white;
+    border-radius: 5px;
+    font-size: 90%;
+    font-weight: 500;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 5px;
+    list-style-type: none;
+}

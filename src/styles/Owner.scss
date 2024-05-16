@@ -1,0 +1,14 @@
+.host {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 20px;
+    &__name {
+        flex-wrap: wrap;
+    }
+    &__picture {
+        background-color: #C4C4C4;
+        height: 64px;
+        width: 64px;
+        border-radius: 50px;
+    }
+}
