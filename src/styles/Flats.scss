@@ -19,4 +19,23 @@
         margin: 0;
         padding-top: 10px;
     }
+    &__collapse {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        gap: 50px;
+        &__container {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        &__title {
+            font-size: 18px;
+        }
+        &__list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+    }
 }

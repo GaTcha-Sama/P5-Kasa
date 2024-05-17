@@ -9,36 +9,32 @@
       margin: 0;
       width: 100%;
     }
-
     &__body {
       background-color: white;
       color: black;
       padding: 20px;
-      font-size: small;
+      font-size: 15px;
+    }    
+    &__arrow-container {
+        margin-left: auto;
     }
-    
-        &__arrow-container {
-            margin-left: auto;
-        }
 
-        &__info {
-            justify-content: space-between;
-            margin-bottom: 10px;
+    &__info {
+        justify-content: space-between;
   
         &__header {
             background-color: #FF6060;
+            height: 35px;
             border-radius: 5px;
             color: white;
-            padding: 10px;
+            padding: 15px;
             cursor: pointer;
             font-weight: 600;
-            font-size: large;
             display: flex;
-            align-items: center;
-  
-        &.active {
-          border-bottom: 1px solid white;
-        }
+            align-items: center;  
+            &.active {
+              border-bottom: 1px solid white;
+            }
       }      
     }
   }

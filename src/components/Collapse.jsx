@@ -1,41 +1,31 @@
 import React, { useState } from 'react';
 import '../styles/Collapse.scss';
-import Data from '../data/CollapseText.json';
-import ArrowUp from '../assets/arrow-up.png';
-import ArrowDown from '../assets/arrow-down.png';
+import Arrow from '../assets/arrow-up.png';
 
-function Collapse() {
-  const [activeCollapses, setActiveCollapses] = useState([])
+function Collapse({collapseTitle , collapseDescription}) {
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleCollapse = (id) => {
-    setActiveCollapses((prevActiveCollapses) => {
-      const updatedActiveCollapses = prevActiveCollapses.includes(id)
-        ? prevActiveCollapses.filter((item) => item !== id)
-        : [...prevActiveCollapses, id];
-      return updatedActiveCollapses;
-    })
-  }
+  const handleClick = () => {
+      setIsOpen(!isOpen);
+  };
 
   return (
-    <div className="collapse">
-      {Data.map((item) => (
-        <div key={item.id} className="collapse__info">
-          <div className="collapse__info__header">
-            <div className="collapse__info__title">{item.title}</div>
-              <div className={`collapse__arrow-container ${activeCollapses.includes(item.id) ? 'active' : ''}`}
-                onClick={() => toggleCollapse(item.id)} role="button"tabIndex={0} >
-              <img
-                src={activeCollapses.includes(item.id) ? ArrowDown : ArrowUp}
-                alt={`arrow-${activeCollapses.includes(item.id) ? 'down' : 'up'}`}
-                className="collapse__arrow"
-              />
-            </div>
+      <div className="collapse">
+          <div className='collapse__info'>
+              <div className="collapse__info__header" onClick={handleClick}>
+                  {collapseTitle}
+                  <img src={Arrow}
+                  className={`collapse__arrow-container ${isOpen ? "arrow-up" : "arrow-down"}`}
+                  alt="arrow" />
+              </div>
           </div>
-          {activeCollapses.includes(item.id) && (<div className="collapse__body">{item.description}</div>)}
+          <div>
+              {isOpen && (
+              <div className="collapse__body">{collapseDescription}</div>
+              )}
           </div>
-      ))}
-    </div>
-  )
+      </div>
+  );
 }
 
 export default Collapse

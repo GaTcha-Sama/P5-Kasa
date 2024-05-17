@@ -32,7 +32,7 @@ if (!selectedData) {
 }
 
   return (
-    <body className='appart'>
+    <div className='appart'>
       <div>
         <Carroussel pictures={selectedData.pictures} />
       </div>      
@@ -62,10 +62,28 @@ if (!selectedData) {
         </section>
       </main>
 
-      <div>
-        <Collapse data={DataBase} />
-      </div>
-    </body>
+      <div className="appart__collapse">
+                <div className="appart__collapse__container">
+                    <Collapse
+                    collapseTitle={<h2 className="appart__collapse__title">Description</h2>}
+                    collapseDescription={<p>{selectedData.description}</p>} 
+                    />
+                </div>
+                    
+                <div className="appart__collapse__container">
+                    <Collapse 
+                    collapseTitle={<h2 className="appart__collapse__title">Equipements</h2>}
+                    collapseDescription={
+                        <ul className="appart__collapse__list">
+                            {selectedData.equipments.map((equipments, index) => (
+                            <li key={`${index}-${equipments}`}>{equipments}</li>
+                        ))}
+                        </ul>
+                        }
+                    />
+                </div>
+            </div>
+    </div>
   )
 }
 
