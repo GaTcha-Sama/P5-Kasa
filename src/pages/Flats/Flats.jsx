@@ -48,7 +48,9 @@ if (!selectedData) {
 
         <section>
           <div className='appart__host'>
-            <Owner name={selectedData.host.name} 
+            <Owner 
+                    key={selectedData.id}
+                    name={selectedData.host.name} 
                     picture={selectedData.host.picture}            
             />
             <div className='appart__host__name'></div>
@@ -61,10 +63,7 @@ if (!selectedData) {
       </main>
 
       <div>
-        <Collapse
-                title="Description" 
-                content={selectedData.description}
-        />
+        <Collapse data={DataBase} />
       </div>
     </body>
   )

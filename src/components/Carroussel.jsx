@@ -1,52 +1,50 @@
 import React, { useState } from 'react'
-import ArrowRight from '../assets/arrow-right.png'
-import ArrowLeft from '../assets/arrow-left.png'
+import ArrowNext from '../assets/arrow-right.png'
+import ArrowBack from '../assets/arrow-left.png'
 import '../styles/Carroussel.scss'
 
-Carroussel.defaultProps = {
-  pictures: []
-}
+function Caroussel({ pictures }) {
+  const [ currentPicture, setCurrentPicture ] = useState(0);
 
- function Carroussel({pictures}) {
-  const [ currentPictures, setCurrentPictures] = useState(0)
-
-  function changePictures(direction) {
-    if(direction === "next") {
-      setCurrentPictures((prevPicture) => (prevPicture +1) % pictures.length)
-    } else if (direction === "previous") {
-      setCurrentPictures((prevPicture) => prevPicture === 0 ? pictures.length -1 : prevPicture - 1)
-    }
+  function changePicture(direction) {
+      if (direction === "next") {
+          setCurrentPicture((prevPicture) => (prevPicture +1) % pictures.length);
+      } else if (direction === "previous") {
+          setCurrentPicture((prevPicture) => prevPicture === 0 ? pictures.length - 1 : prevPicture - 1);
+      };
   }
 
   return (
-    <div className='carroussel'>
-        {pictures.length > 1 && (
-          <img src={ArrowLeft} 
-              className='carroussel__arrow-left'
-              alt="arrow-left"
-              onClick={() => changePictures("previous")}
+      <div className="carroussel">
+          {pictures.length > 1 && (
+              <img
+                  className="carroussel__previous-arrow carroussel__arrow-img"
+                  src={ArrowBack}
+                  alt="Previous"
+                  onClick={() => changePicture("previous")}
+              />
+          )}
+
+          <img
+              className="carroussel__picture"
+              src={pictures[currentPicture]}
+              alt="Current"
           />
-        )}
 
-        <img src={pictures[currentPictures]}
-              alt="pictures-next"
-              className='carroussel__picture'
-         />
+          {pictures.length > 1 && (
+              <img
+                  className="carroussel__next-arrow carroussel__arrow-img"
+                  src={ArrowNext}
+                  alt="Next"
+                  onClick={() => changePicture("next")}
+              />
+          )}
 
-         {pictures.length > 1 && (
-          <img src={ArrowRight}
-              className='carroussel__arrow-right'
-              alt='arrow-right'
-              onClick={() => changePictures("next")}
-          />
-         )}
-
-         {pictures.length > 1 && (
-          <p className='carroussel__number'>{currentPictures +1}/{pictures.length}</p>
-         )}
-
-    </div>
-  )
+          {pictures.length > 1 && (
+              <p className="carroussel__numbers">{currentPicture + 1} / {pictures.length}</p>
+          )}
+      </div>
+  );
 }
 
-export default Carroussel
+export default Caroussel
