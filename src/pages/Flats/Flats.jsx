@@ -46,7 +46,7 @@ if (!selectedData) {
           </div>
         </section>
 
-        <section>
+        <section className='appart__host-stars'>
           <div className='appart__host'>
             <Owner 
                     key={selectedData.id}

@@ -2,13 +2,24 @@
     display: flex;
     justify-content: flex-end;
     padding-bottom: 20px;
-    &__name {
-        flex-wrap: wrap;
+    gap: 10px;
+    &__owner {
+        display: flex;
+        justify-content: end;
+        width: 30%;
+        align-items: center;
+        @media (max-width: 768px) {
+            font-size: 15px;
+        }
     }
     &__picture {
         background-color: #C4C4C4;
         height: 64px;
         width: 64px;
         border-radius: 50px;
+        @media (max-width: 768px) {
+            height: 40px;
+            width: 40px;
+        }
     }
 }

@@ -16,8 +16,8 @@ function Rating({ rating }) {
   return (
       <ul className="rating">
           {Array.from({ length: maxRate }, (_, index) => (
-              <li key={index}>
-                  <img src={showStars(index)} alt="stars" />
+              <li key={index} className='rating__stars'>
+                  <img src={showStars(index)} alt="stars" className='rating__stars__img' />
               </li>
           ))}
       </ul>

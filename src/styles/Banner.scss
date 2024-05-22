@@ -3,6 +3,10 @@
     height: 223px;
     max-width: 100%;
     position: relative;
+    @media (max-width: 768px) {
+        padding: 0;
+        margin-bottom: 30px;
+    }
     &__img {
         display: block;
         width: 100%;

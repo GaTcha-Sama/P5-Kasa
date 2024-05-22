@@ -4,8 +4,8 @@ import '../styles/Owner.scss'
 function Owner({name, picture}) {
   return (
     <div className='host'>
-    <figcaption>
-        <div className='host__name'>{name}</div>
+    <figcaption className='host__owner'>
+        <div className='host__owner__name'>{name}</div>
     </figcaption>
     <img src={picture} alt="pix-owner" className='host__picture' />
     </div>

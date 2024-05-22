@@ -3,10 +3,11 @@ import Collapse from '../../components/Collapse'
 import Banner from '../../components/Banner'
 import ImgBannerAbout from '../../assets/img-about.png'
 import Data from '../../data/CollapseText.json'
+import '../../styles/About.scss'
 
 function About() {
   return (
-    <div>
+    <div className='about-responsive'>
       <Banner image={ImgBannerAbout} />
       <section>
                 {Data.map(({ title, description}, index) => (

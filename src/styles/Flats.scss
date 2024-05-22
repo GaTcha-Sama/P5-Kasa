@@ -7,6 +7,17 @@
     &__header {
         display: flex;
         justify-content: space-between;
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    &__host-stars {
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
     }
     &__title {
         font-weight: 400;
@@ -24,10 +35,13 @@
         justify-content: space-around;
         width: 100%;
         gap: 50px;
+        @media (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
         &__container {
             width: 100%;
-            margin-left: 0;
-            margin-right: 0;
         }
         &__title {
             font-size: 18px;
@@ -38,4 +52,11 @@
             padding: 0;
         }
     }
+
+    .collapse {
+        margin-right: 0;
+        margin-left: 0;
+        
+    }
 }
+
