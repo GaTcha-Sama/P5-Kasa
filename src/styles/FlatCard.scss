@@ -13,6 +13,7 @@
     height: 340px;
     min-height: 340px;
     cursor: pointer;
+    
     &__title {  
         display: flex; 
         justify-content: flex-start;  
@@ -23,6 +24,7 @@
         margin-top: 0;
         padding-left: 10px;
     }    
+    
     &__img {
         display: flex;
         width: 100%;
@@ -30,9 +32,11 @@
         border-radius: 10px 10px 0 0;
         padding: 5px;
     }
-    @media (max-width:768px) {
-        padding: 0;
-        margin: 0;
-        margin-bottom: 30px;
+    
+    @media (max-width: 580px) {
+        
+        height: 255px;
+        min-height: 255px;
+        margin: 0 20px 30px; /* Ensure cards are centered */
     }
 }
