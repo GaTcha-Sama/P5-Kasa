@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ArrowNext from '../assets/arrow-right.png'
-import ArrowBack from '../assets/arrow-left.png'
+import ArrowNext from '../assets/arrow-next.png'
+import ArrowPrev from '../assets/arrow-prev.png'
 import '../styles/Carroussel.scss'
 
 function Caroussel({ pictures }) {
@@ -19,7 +19,7 @@ function Caroussel({ pictures }) {
           {pictures.length > 1 && (
               <img
                   className="carroussel__previous-arrow carroussel__arrow-img"
-                  src={ArrowBack}
+                  src={ArrowPrev}
                   alt="Previous"
                   onClick={() => changePicture("previous")}
               />

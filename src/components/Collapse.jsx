@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Collapse.scss';
-import ArrowUp from '../assets/arrow-up.png';
-import ArrowDown from '../assets/arrow-down.png'
+import Arrow from '../assets/arrow-up.png';
 
 function Collapse({ collapseTitle, collapseDescription }) {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +15,8 @@ function Collapse({ collapseTitle, collapseDescription }) {
           <div className="collapse__info__header">
             {collapseTitle}
             <img 
-              src={isOpen ? ArrowDown : ArrowUp} 
-              className="collapse__arrow-container"
+              src={Arrow} 
+              className={`collapse__arrow-container ${isOpen ? 'rotate' : ''}`}
               alt="arrow" 
               onClick={handleClick}
             />
@@ -34,4 +33,4 @@ function Collapse({ collapseTitle, collapseDescription }) {
     );
   }
   
-  export default Collapse
+export default Collapse;
