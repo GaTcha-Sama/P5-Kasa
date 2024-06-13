@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+      "target": "es5", // Le code de sortie est compatible avec ES5 (ECMAScript 5)
+      "lib": ["dom", "dom.iterable", "esnext"], // Bibliothèques à inclure lors de la compilation
+      "allowJs": true, // Permet la compilation des fichiers .js
+      "skipLibCheck": true, // Ignore la vérification des types dans les fichiers de déclaration
+      "esModuleInterop": true, // Permet d'importer des modules CommonJS en utilisant la syntaxe ES6
+      "allowSyntheticDefaultImports": true, // Permet les importations par défaut synthétiques
+      "strict": true, // Active toutes les vérifications strictes
+      "forceConsistentCasingInFileNames": true, // Vérifie la casse cohérente dans les noms de fichiers
+      "noFallthroughCasesInSwitch": true, // Empêche les cas de switch de se terminer sans break
+      "module": "esnext", // Utilise le système de modules ESNext
+      "moduleResolution": "node", // Utilise la résolution des modules Node.js
+      "resolveJsonModule": true, // Permet d'importer des fichiers JSON
+      "isolatedModules": true, // Traite chaque fichier comme un module isolé
+      "noEmit": true, // Empêche la génération des fichiers de sortie
+      "jsx": "react-jsx" // Utilise la nouvelle transformation JSX pour React
+    },
+    "include": ["src"] // Inclut tous les fichiers dans le dossier src
+  }
+  
